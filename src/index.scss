@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -74,6 +75,12 @@ nav.filters {
         text-align: center;
         padding-top: 16px;
         box-sizing: border-box;
+        &.active {
+          background-color: #5c55f7;
+          border-width: 0px;
+
+          color: white;
+        }
       }
     }
   }
@@ -121,7 +128,7 @@ section.reviews {
     }
     p.content {
       margin: 12px 0 0;
-      font-size: 1rem;
+      font-size: 16px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
@@ -165,3 +172,4 @@ footer.pagination {
     }
   }
 }
+@import "../src/components/global/Loading.scss";

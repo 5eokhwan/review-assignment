@@ -13,11 +13,12 @@ function Filter({ info }) {
             <div
               className={info.active === i ? "active" : ""}
               onClick={() => dispatch(changeFilters(info.category, i))}
+              key={i}
             >
               {name}
             </div>
           ) : (
-            <div style={{ visibility: "hidden" }}></div>
+            <div style={{ visibility: "hidden" }} key={i}></div>
           )
         )}
       </span>

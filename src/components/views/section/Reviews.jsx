@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Axios from "axios";
 import Loading from "../../global/Loading";
 import Review from "./Review";
+import { renewTotalData } from "../../../reducers/page";
 
 function Reviews() {
+  const dispatch = useDispatch();
   const { size, offset } = useSelector((state) => state.pageReducer);
   const { filters } = useSelector((state) => state.filtersReducer);
-
   const [reviews, setReviews] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       const yearFilterQueryStr =
@@ -31,10 +33,14 @@ function Reviews() {
       );
       console.log(response.data);
       setReviews(response.data.data);
+      dispatch(renewTotalData(response.data.total));
     }
     fetchData();
-  }, [filters]);
-
+  }, [filters, offset]);
+  if (reviews && reviews.length === 0)
+    return (
+      <div style={{ textAlign: "center", margin: "50px" }}>값이 없습니다.</div>
+    );
   return reviews ? (
     reviews.map((review, i) => <Review info={review} key={i} />)
   ) : (

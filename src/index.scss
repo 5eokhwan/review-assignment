@@ -89,13 +89,14 @@ nav.filters {
 section.reviews {
   article {
     width: 100%;
-    // height: 135.008px;
+    height: 135.008px;
     box-sizing: border-box;
     margin: 16px 0;
     padding: 1.5rem 2rem 1.75rem;
     border-radius: 18px;
     box-shadow: 2px 4px 34px 0 #d9d8e7;
     background-color: #fff;
+
     &:first-child {
       margin: 0;
     }
@@ -115,7 +116,7 @@ section.reviews {
     }
 
     p.date {
-      width: 4.375rem;
+      // width: 4.375rem;
       height: 1.25rem;
       margin: 0.313rem 0 0 0.688rem;
       font-size: 0.875rem;
@@ -127,6 +128,7 @@ section.reviews {
       color: #999;
     }
     p.content {
+      display: block;
       margin: 12px 0 0;
       font-size: 16px;
       font-weight: normal;
@@ -135,6 +137,13 @@ section.reviews {
       line-height: 1.38;
       letter-spacing: normal;
       color: #666;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-wrap: break-word;
+      line-height: 1.2em;
     }
   }
 }
@@ -168,6 +177,9 @@ footer.pagination {
       }
       &.left {
         transform: rotate(180deg);
+      }
+      &.none {
+        visibility: hidden;
       }
     }
   }

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { changeFilters } from "../../../reducers/filters";
+import { selectPage } from "../../../reducers/page";
 
 function Filter({ info }) {
   const dispatch = useDispatch();
@@ -12,7 +13,10 @@ function Filter({ info }) {
           name ? (
             <div
               className={info.active === i ? "active" : ""}
-              onClick={() => dispatch(changeFilters(info.category, i))}
+              onClick={() => {
+                dispatch(changeFilters(info.category, i));
+                dispatch(selectPage(1));
+              }}
               key={i}
             >
               {name}

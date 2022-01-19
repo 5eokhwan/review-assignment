@@ -2,19 +2,19 @@ import { useDispatch } from "react-redux";
 import { changeFilters } from "../../../reducers/filters";
 import { selectPage } from "../../../reducers/page";
 
-function Filter({ info }) {
+function Filter({ filter }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={"filter " + info.category}>
-      <span className="category">{info.k_category}</span>
+    <div className={"filter " + filter.category}>
+      <span className="category">{filter.k_category}</span>
       <span className="check-set">
-        {info.names.map((name, i) =>
+        {filter.names.map((name, i) =>
           name ? (
             <div
-              className={info.active === i ? "active" : ""}
+              className={filter.active === i ? "active" : ""}
               onClick={() => {
-                dispatch(changeFilters(info.category, i));
+                dispatch(changeFilters(filter.category, i));
                 dispatch(selectPage(1));
               }}
               key={i}

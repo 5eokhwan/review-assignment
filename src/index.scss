@@ -17,9 +17,6 @@ h1 {
 
   // width: 55.5%;
   padding: 0 22.25% 0 22.25%;
-  .container {
-    // border: 1px solid black;
-  }
 }
 
 header {
@@ -66,6 +63,7 @@ nav.filters {
       display: flex;
       justify-content: space-between;
       div {
+        cursor: pointer;
         width: calc(100px * 1.25);
         height: calc(48px * 1.25);
         border-radius: 14px;
@@ -78,7 +76,7 @@ nav.filters {
         &.active {
           background-color: #5c55f7;
           border-width: 0px;
-
+          cursor: auto;
           color: white;
         }
       }
@@ -89,7 +87,7 @@ nav.filters {
 section.reviews {
   article {
     width: 100%;
-    min-height: calc(135.008px * 1.15);
+    min-height: 135px;
     box-sizing: border-box;
     margin: 16px 0;
     padding: 1.5rem 2rem 1.75rem;
@@ -106,7 +104,6 @@ section.reviews {
     }
     h1 {
       height: 1.688rem;
-      margin: 0 0.688rem 0 0;
       font-size: 1.125rem;
       font-weight: bold;
       font-stretch: normal;
@@ -119,7 +116,7 @@ section.reviews {
     p.date {
       // width: 4.375rem;
       height: 1.25rem;
-      margin: 0.313rem 0 0 0.688rem;
+      margin: 0.313rem 0 0 11px;
       font-size: 0.875rem;
       font-weight: normal;
       font-stretch: normal;
@@ -153,7 +150,6 @@ section.reviews {
     }
     &.more {
       div.content {
-        transition: 1s;
         height: max-content;
         display: block;
       }

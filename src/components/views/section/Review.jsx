@@ -24,7 +24,7 @@ function Review({ info }) {
       <h1>
         {info.student_name} | {info.year_name + ", " + info.subject_view_name}
       </h1>
-      <p className="date">{info.reg_datetime}</p>
+      <p className="date">{info.reg_datetime.split(" ")[0]}</p>
       <div className="content" ref={textBoxRef}>
         {info.review}
       </div>
@@ -35,7 +35,7 @@ function Review({ info }) {
           SetIsSpread(!isSpread);
         }}
       >
-        {isSpreadBtn ? (isSpread ? "축소" : "더보기") : null}
+        {isSpreadBtn ? isSpread ? "축소" : "더보기" : <p></p>}
       </div>
     </article>
   );

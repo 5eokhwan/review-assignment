@@ -7,10 +7,7 @@ export const PREVIOUS_PAGE = "PAGE/PREVIOUS_PAGE";
 export const NEXT_OFFSET = "PAGE/NEXT_OFFSET";
 export const PREVIOUS_OFFSET = "PAGE/PREVIOUS_OFFSET";
 export const RENEW_TOTAL_DATA = "PAGE/RENEW_TOTAL_DATA";
-//상태의 변화가 필요할 때 발생하는 것을 액션(Action)
-//액션 생성 함수
-//액션(Action)을 생성해주는 함수
-//파라미터를 받아 액션 객체 형태로 만들어주는 일
+
 export const selectPage = (offset) => ({
   type: SELECT_PAGE,
   payload: { offset },
@@ -41,7 +38,6 @@ const initalState = {
   end: 5,
 };
 
-//리듀서(변화를 일으키는 함수)
 const pageReducer = (state = initalState, { type, payload }) => {
   let newOffset;
   let totalPage = Math.ceil(state.totalReview / state.size);

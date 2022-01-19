@@ -13,15 +13,15 @@ function Pagination() {
   const { size, gap, offset, totalReview } = useSelector(
     (state) => state.pageReducer
   );
+  const totalPage = Math.ceil(totalReview / size);
 
   const returnSE = (offset, totalPage) => {
     if (offset - gap / 2 < 1) return [0, 0 + gap];
-    else if (offset - gap / 2 > totalPage - gap)
-      return [totalPage - gap, totalPage];
-    else return [Math.floor(offset - gap / 2), Math.floor(offset + gap / 2)];
+    else if (offset - gap / 2 > totalPage - gap) {
+      if (totalPage < gap) return [0, totalPage];
+      else return [totalPage - gap, totalPage];
+    } else return [Math.floor(offset - gap / 2), Math.floor(offset + gap / 2)];
   };
-
-  const totalPage = Math.ceil(totalReview / size);
 
   const numBtnList = [];
   for (let i = 0; i < totalPage; i++) numBtnList.push(i + 1);

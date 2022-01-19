@@ -6,7 +6,7 @@ function Filters() {
   return (
     <nav className="filters container">
       {filters.map((filter, i) => (
-        <Filter key={i} info={filter} />
+        <Filter key={i} filter={filter} />
       ))}
     </nav>
   );

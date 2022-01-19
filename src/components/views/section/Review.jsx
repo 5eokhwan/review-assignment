@@ -2,22 +2,22 @@ import React, { useRef, useState, useEffect } from "react";
 
 function checkOverflow(el) {
   let curOverflow = el.style.overflow;
-
   if (!curOverflow || curOverflow === "visible") el.style.overflow = "hidden";
-
   let isOverflowing =
     el.clientWidth < el.scrollWidth || el.clientHeight < el.scrollHeight;
-
   el.style.overflow = curOverflow;
-
   return isOverflowing;
 }
 
 function Review({ info }) {
   const [isSpread, SetIsSpread] = useState(false);
+  const [isSpreadBtn, setIsSpreadBtn] = useState(false);
   const textBoxRef = useRef();
-  let isSpreadBtn = false;
-  if (textBoxRef.current) isSpreadBtn = checkOverflow(textBoxRef.current);
+
+  useEffect(() => {
+    SetIsSpread(false);
+    if (textBoxRef.current) setIsSpreadBtn(checkOverflow(textBoxRef.current));
+  }, [info]);
 
   return (
     <article className={isSpread ? "more" : ""}>

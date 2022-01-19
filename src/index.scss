@@ -147,6 +147,9 @@ section.reviews {
     div.more_button {
       text-align: right;
       color: #5c55f7;
+      cursor: pointer;
+      width: 3em;
+      margin-left: auto;
     }
     &.more {
       div.content {

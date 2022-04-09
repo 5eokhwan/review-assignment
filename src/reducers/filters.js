@@ -10,7 +10,7 @@ const initalState = {
     {
       category: "year",
       k_category: "학년",
-      names: ["전체", "고3, N수생", "고2", "고1", "중3", "중2", "중1"],
+      names: ["전체", "고3, n수생", "고2", "고1", "중3", "중2", "중1"],
       active: 0,
     },
     {
